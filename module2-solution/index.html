@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" ng-app="shoppingApp">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 4rem;
+      }
+      button > span {
+        color: green;
+      }
+      .container h1{
+        text-align: center;
+      }
+      #addItem{
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+      }
+      #name{
+        width: 45%;
+        height: 6%;
+      }
+      #addItem > input:focus{
+        box-shadow: 1px 1px 1px 1px rgb(186, 124, 91);
+      }
+      #num{
+        margin-left: 5%;
+        width: 45%;
+        height: 6%;
+      }
+      #addItem button{
+        margin-top : 2vh;
+        background-color: rgb(74, 220, 74);
+        width:95.5%;
+        height: 6%;
+        color: rgb(67, 54, 93);
+      }
+      
+    </style>
+  </head>
+<body>
+  <div class="container">
+  <h1>Shopping List Check Off</h1>
+  <div class="row">
+    <div id="addItem" ng-controller="addItem as add">
+      <input id="name" type="text" placeholder="Item Name" ng-model="add.name">
+      <input id="num" type="number" placeholder="Item Quantity" ng-model="add.quantity"><br>
+      <button ng-click="add.addtoshopList()"><strong>Add to Shopping List </strong></button>
+    </div>
+
+    <!-- To Buy List -->
+    <div class="col-md-6" ng-controller="ToBuylist as tobuy">
+     <h2>To Buy:</h2>
+     <ul>
+       <!-- <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li> -->
+       <li ng-repeat="item in tobuy.items">
+        Buy {{item.quantity}} {{item.name}}<button class="btn btn-default" ng-click="tobuy.addtoBought($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+       </li>
+     </ul>
+     <div class="emptyMessage" ng-show="tobuy.items.length === 0">Everything is bought!</div>
+    </div>
+
+    <!-- Already Bought List -->
+    <div class="col-md-6" ng-controller="alreadyBought as bought">
+     <h2>Already Bought:</h2>
+     <ul>
+       <li ng-repeat="item in bought.items">Bought {{item.quantity}} {{item.name}}</li>
+     </ul>
+     <div class="emptyMessage" ng-show="bought.items.length === 0">Nothing bought yet.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
