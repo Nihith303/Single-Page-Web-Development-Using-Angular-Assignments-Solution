@@ -10,4 +10,4 @@ Module 1 | Introduction to AngularJS # Result : https://jonnalagaddanihit.github
 Module 2 | Filters, Digest Cycle, Controller Inheritance, and Custom Services # Result : https://jonnalagaddanihit.github.io/module2-solution/
 Module 3 | Promises, Ajax, and Custom Directives # Result : https://jonnalagaddanihit.github.io/module3-Sloution/
 Module 4 | Components, Events, Modules, and Routing # Result : https://jonnalagaddanihit.github.io/module4-Solution/#!/
-Module 5 | Form Validation, Testing, and Restaurant Site Development 
+Module 5 | Form Validation, Testing, and Restaurant Site Development # Result : https://jonnalagaddanihit.github.io/module5-Solution/#/
